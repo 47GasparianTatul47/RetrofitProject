@@ -1,6 +1,8 @@
 package com.example.retrofitproject
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.coroutines.Dispatchers
@@ -14,16 +16,35 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        GlobalScope.launch(Dispatchers.IO) {
-            val call = UserRetrofitService.retrofit.create(UserInterfacee::class.java).getSingleUser()
+        findViewById<Button>(R.id.newActivity).setOnClickListener {
+            val intent = Intent(this, Lesson2::class.java)
+            startActivity(intent)
+        }
 
-            val firstname = call.execute().body()?.data?.firstNamee
+        GlobalScope.launch(Dispatchers.IO) {
+            val call =
+                UserRetrofitService.retrofit.create(UserInterfacee::class.java).getSingleUser()
+
+            val idRetrofit = call.execute().body()?.data?.id
+            val emailRetrofit = call.clone().execute().body()?.data?.email
+            val firstNameRetrofit = call.clone().execute().body()?.data?.firstNamee
+            val lastNameRetrofit = call.clone().execute().body()?.data?.last_name
+            val avatarRetrofit = call.clone().execute().body()?.data?.avatar
 
             withContext(Dispatchers.Main) {
 
-                val titlee = findViewById<TextView>(R.id.titlee)
+                val id = findViewById<TextView>(R.id.id)
+                val email = findViewById<TextView>(R.id.email)
+                val firstName = findViewById<TextView>(R.id.first_name)
+                val lastNam = findViewById<TextView>(R.id.last_name)
+                val avatar = findViewById<TextView>(R.id.avatar)
 
-                titlee.text = firstname
+                id.text = idRetrofit.toString()
+                email.text = emailRetrofit
+                firstName.text = firstNameRetrofit
+                lastNam.text = lastNameRetrofit
+                avatar.text = avatarRetrofit
+
 
             }
 

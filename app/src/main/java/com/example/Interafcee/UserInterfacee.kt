@@ -1,5 +1,6 @@
 package com.example.retrofitproject
 
+import com.example.Models.UserModel
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -7,7 +8,7 @@ import retrofit2.http.GET
 
 interface UserInterfacee {
 
-    @GET("api/users/2")
+    @GET("api/users/5")
     fun getSingleUser(): Call<UserModel>
 
 }
