@@ -7,7 +7,7 @@ import retrofit2.http.GET
 
 interface UserInterfacee {
 
-    @GET("api/users/5")
+    @GET("api/users/2")
     fun getSingleUser(): Call<UserModel>
 
 }
