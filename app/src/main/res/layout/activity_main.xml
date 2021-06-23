@@ -16,7 +16,7 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="id!"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="#280101"
         android:textSize="50sp"
         android:textStyle="bold" />
 
@@ -57,13 +57,14 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
-    <TextView
+    <ImageView
         android:id="@+id/avatar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:gravity="center"
+        android:src="@color/black"
         android:text="last_name!"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="30sp"

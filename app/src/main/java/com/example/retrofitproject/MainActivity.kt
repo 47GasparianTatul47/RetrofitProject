@@ -3,8 +3,10 @@ package com.example.retrofitproject
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -37,13 +39,16 @@ class MainActivity : AppCompatActivity() {
                 val email = findViewById<TextView>(R.id.email)
                 val firstName = findViewById<TextView>(R.id.first_name)
                 val lastNam = findViewById<TextView>(R.id.last_name)
-                val avatar = findViewById<TextView>(R.id.avatar)
+                val avatar = findViewById<ImageView>(R.id.avatar)
+
+                Picasso.with(applicationContext)
+                    .load(avatarRetrofit)
+                    .into(avatar)
 
                 id.text = idRetrofit.toString()
                 email.text = emailRetrofit
                 firstName.text = firstNameRetrofit
                 lastNam.text = lastNameRetrofit
-                avatar.text = avatarRetrofit
 
 
             }

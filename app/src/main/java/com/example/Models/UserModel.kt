@@ -15,10 +15,5 @@ class UserModel {
         val avatar: String
     )
 
-    data class Support(
-        var url: String,
-        var text: String
-    )
-
-
 }
+
